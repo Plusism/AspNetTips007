@@ -1,8 +1,43 @@
 ﻿@{
 	ViewData["Title"] = "Home Page";
 }
+<style>
+	section {
+		margin-top: 50px;
+	}
+</style>
 
-<div class="text-center">
-	<h1 class="display-4">Welcome</h1>
-	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>WebP対応</h1>
+
+<p>
+	WebP形式に対応したブラウザーで、同名のWebPファイルがサーバー上に存在する場合に、拡張子を置き換えて表示させる。<br />
+	WebPファイルが表示できない場合は、srcで指定されたファイルをそのまま表示します。
+</p>
+
+<section>
+	<h3>test1.webp</h3>
+	<p>
+		WebPを直接指定する<br />
+		※ブラウザーがWebP形式に非対応の場合は画像が表示されません
+	</p>
+	<img src="/images/test1.webp" alt="test" asp-append-version="true" width="200" />
+</section>
+
+<section>
+	<h3>test1.png + replace-webp</h3>
+	<p>
+		"replace-webp" で PNG を WebP に置き換える<br />
+		※test1.webpがサーバー上に存在する → WebP形式を表示
+	</p>
+	<img src="/images/test1.png" alt="test" replace-webp="true" asp-append-version="true" width="200" />
+</section>
+
+<section>
+	<h3>test2.png + replace-webp</h3>
+	<p>
+		"replace-webp" で PNG を WebP に置き換える<br />
+		※test2.webpがサーバー上に存在しない → PNG形式を表示
+	</p>
+	<img src="/images/test2.png" alt="test" replace-webp="true" asp-append-version="true" width="200" />
+</section>
+
